@@ -5,6 +5,8 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.neonuriel.thankyouboxmod.items.TutorialItems;
+
 public class ThankyouBoxMOD implements ModInitializer {
 	public static final String MOD_ID = "thankyouboxmod";
 
@@ -20,5 +22,6 @@ public class ThankyouBoxMOD implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+		TutorialItems.initialize();
 	}
 }
