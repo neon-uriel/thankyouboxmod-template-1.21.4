@@ -1,5 +1,6 @@
 {
     "item.thankyouboxmod.custom_item": "RRUM",
     "item.thankyouboxmod.fuji_rock": "Fuji stone",
-    "block.thankyouboxmod.custom_block": "GOAT"
+    "block.thankyouboxmod.custom_block": "GOAT",
+    "itemGroup.ThankyouBoxMOD": "Thank You Box Mod"
 }

@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -11,6 +12,7 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import com.neonuriel.thankyouboxmod.items.ModItems;
 
 public class ModBlocks {
         private ModBlocks() {
@@ -30,5 +32,8 @@ public class ModBlocks {
         }
 
         public static void initialize() {
+                ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+                        itemGroup.add(ModBlocks.CUSTOM_BLOCK.asItem());
+                });
         }
 }
