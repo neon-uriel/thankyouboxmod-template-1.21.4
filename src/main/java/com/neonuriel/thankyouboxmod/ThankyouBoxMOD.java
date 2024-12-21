@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.neonuriel.thankyouboxmod.items.TutorialItems;
+import com.neonuriel.thankyouboxmod.items.FujiRock;
 
 public class ThankyouBoxMOD implements ModInitializer {
 	public static final String MOD_ID = "thankyouboxmod";
@@ -23,5 +24,6 @@ public class ThankyouBoxMOD implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		TutorialItems.initialize();
+		FujiRock.initialize();
 	}
 }
