@@ -12,7 +12,9 @@ import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 public class TutorialItems {
   private TutorialItems() {
   }
- 
+
+  public static final Item FUJI_ROCK = register("fuji_rock", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).build()));
+
   public static final Item CUSTOM_ITEM = register("custom_item", Item::new, new Item.Settings().food(new FoodComponent.Builder().build()));
  
   public static Item register(String path, Function<Item.Settings, Item> factory, Item.Settings settings) {
