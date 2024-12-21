@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.neonuriel.thankyouboxmod.items.ModItems;
+import com.neonuriel.thankyouboxmod.items.armor.ModArmorMaterials;
 import com.neonuriel.thankyouboxmod.blocks.ModBlocks;
 import com.neonuriel.thankyouboxmod.entities.Entities;
 
@@ -25,6 +26,7 @@ public class ThankyouBoxMOD implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+		ModArmorMaterials.initialize();
 		ModItems.initialize();
 		ModBlocks.initialize();
 		Entities.init();
