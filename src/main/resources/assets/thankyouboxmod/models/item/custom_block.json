@@ -1,0 +1,6 @@
+{
+    "parent": "thankyouboxmod:block/custom_block",
+    "textures": {
+        "layer0": "thankyouboxmod:block/custom_block"
+    }
+}
