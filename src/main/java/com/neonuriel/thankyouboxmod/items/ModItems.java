@@ -24,10 +24,15 @@ public class ModItems {
     public static final Item FUJI_ROCK = register("fuji_rock", Item::new,
             new Item.Settings().food(new FoodComponent.Builder().nutrition(1).build()));
 
-    public static final Item CUSTOM_ITEM = register("custom_item", Item::new,
+    public static final Item RRUM = register("rrum", Item::new,
             new Item.Settings().food(new FoodComponent.Builder().build()));
+
+    public static final Item HUMBURGER = register("hamburger", Item::new,
+            new Item.Settings().food(new FoodComponent.Builder().nutrition(4).build()));
+
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(),
             Identifier.of(ThankyouBoxMOD.MOD_ID, "item_group"));
+
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModItems.FUJI_ROCK))
             .displayName(Text.translatable("itemGroup.ThankyouBoxMOD"))
@@ -42,12 +47,14 @@ public class ModItems {
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register((itemGroup) -> {
             itemGroup.add(ModItems.FUJI_ROCK);
-            itemGroup.add(ModItems.CUSTOM_ITEM);
+            itemGroup.add(ModItems.RRUM);
+            itemGroup.add(ModItems.HUMBURGER);
         });
         Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             itemGroup.add(ModItems.FUJI_ROCK);
-            itemGroup.add(ModItems.CUSTOM_ITEM);
+            itemGroup.add(ModItems.RRUM);
+            itemGroup.add(ModItems.HUMBURGER);
         });
 
     }
