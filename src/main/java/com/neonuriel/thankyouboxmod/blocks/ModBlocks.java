@@ -20,6 +20,9 @@ public class ModBlocks {
 
         public static final Block CUSTOM_BLOCK = register("custom_block", Block::new,
                         Block.Settings.create().strength(1.0f));
+        
+        public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", Block::new,
+                        Block.Settings.create().strength(1.0f));
 
         private static Block register(String path, Function<AbstractBlock.Settings, Block> factory,
                         AbstractBlock.Settings settings) {
