@@ -1,0 +1,8 @@
+{
+    "midori_sound": {
+        "subtitle": "sound.thankyouboxmod.midori_sound",
+        "sounds": [
+            "thankyouboxmod:block/midori_block/midori_sound"
+        ]
+    }
+}

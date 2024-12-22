@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "thankyouboxmod:item/custom_block"
+    "model": "thankyouboxmod:item/midori_block"
   }
 }

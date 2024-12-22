@@ -1,0 +1,6 @@
+{
+    "parent": "thankyouboxmod:block/midori_block",
+    "textures": {
+        "layer0": "thankyouboxmod:block/midori_block"
+    }
+}

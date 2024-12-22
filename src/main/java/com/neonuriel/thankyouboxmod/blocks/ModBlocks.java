@@ -18,9 +18,9 @@ public class ModBlocks {
         private ModBlocks() {
         }
 
-        public static final Block CUSTOM_BLOCK = register("custom_block", Block::new,
+        public static final Block CUSTOM_BLOCK = register("midori_block", Block::new,
                         Block.Settings.create().strength(1.0f));
-        
+
         public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", Block::new,
                         Block.Settings.create().strength(1.0f));
 

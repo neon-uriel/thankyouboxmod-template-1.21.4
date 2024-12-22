@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "thankyouboxmod:custom_block"
+                    "name": "thankyouboxmod:midori_block"
                 }
             ],
             "conditions": [
