@@ -1,0 +1,14 @@
+{
+    "layers": {
+        "humanoid": [
+            {
+                "texture": "thankyouboxmod:armor/akafuku_layer_1"
+            }
+        ],
+        "humanoid_leggings": [
+            {
+                "texture": "thankyouboxmod:armor/akafuku_layer_2"
+            }
+        ]
+    }
+}
