@@ -15,28 +15,26 @@ import net.minecraft.util.Identifier;
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 import com.neonuriel.thankyouboxmod.blocks.ModBlocks;
 
-
 public class Entities {
-    
-    public static EntityType<BlueAppleEntity> BLUE_APPLE_MOB = EntityType.Builder.create(BlueAppleEntity::new, SpawnGroup.CREATURE)
-        .dimensions(0.5f, 0.75f)
-        .maxTrackingRange(2000)
-        .build(RegistryKey.of(
-            RegistryKeys.ENTITY_TYPE,
-            Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob")
-        ));
-    
-    public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX_BLOCK).build();
+
+    public static EntityType<BlueAppleEntity> BLUE_APPLE_MOB = EntityType.Builder
+            .create(BlueAppleEntity::new, SpawnGroup.CREATURE)
+            .dimensions(0.5f, 0.75f)
+            .maxTrackingRange(2000)
+            .build(RegistryKey.of(
+                    RegistryKeys.ENTITY_TYPE,
+                    Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob")));
+
+    public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = FabricBlockEntityTypeBuilder
+            .create(ThankYouBoxEntity::new, ModBlocks.CHITSU_BLOCK).build();
 
     public static void init() {
         Registry.register(
-        Registries.ENTITY_TYPE,
-        Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob"), BLUE_APPLE_MOB
-                );
+                Registries.ENTITY_TYPE,
+                Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob"), BLUE_APPLE_MOB);
         FabricDefaultAttributeRegistry.register(BLUE_APPLE_MOB, BlueAppleEntity.createMobAttributes());
         Registry.register(
-        Registries.BLOCK_ENTITY_TYPE,
-        Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"), THANK_YOU_BOX_ENTITY
-                );
+                Registries.BLOCK_ENTITY_TYPE,
+                Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"), THANK_YOU_BOX_ENTITY);
     }
 }

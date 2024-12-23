@@ -1,8 +1,43 @@
 {
-    "midori_sound": {
-        "subtitle": "sound.thankyouboxmod.midori_sound",
+    "block.midori_block.sound": {
         "sounds": [
-            "thankyouboxmod:block/midori_block/midori_sound"
+            {
+                "name": "thankyouboxmod:block/midori_block/sound",
+                "volume": 0.2
+            }
+        ]
+    },
+    "ima": {
+        "sounds": [
+            "thankyouboxmod:ima"
+        ]
+    },
+    "block.chitsu_block.chitsu": {
+        "sounds": [
+            "thankyouboxmod:block/chitsu_block/chitsu"
+        ]
+    },
+    "block.chitsu_block.anau": {
+        "sounds": [
+            "thankyouboxmod:block/chitsu_block/anau"
+        ]
+    },
+    "block.chitsu_block.iku": {
+        "sounds": [
+            {
+                "name": "thankyouboxmod:block/chitsu_block/iku",
+                "volume": 0.5
+            }
+        ]
+    },
+    "block.chitsu_block.mara": {
+        "sounds": [
+            "thankyouboxmod:block/chitsu_block/mara"
+        ]
+    },
+    "block.chitsu_block.oshiri": {
+        "sounds": [
+            "thankyouboxmod:block/chitsu_block/oshiri"
         ]
     }
 }

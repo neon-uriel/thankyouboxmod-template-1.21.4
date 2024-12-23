@@ -1,0 +1,6 @@
+{
+    "parent": "thankyouboxmod:block/chitsu_block",
+    "textures": {
+        "layer0": "thankyouboxmod:block/chitsu_block"
+    }
+}

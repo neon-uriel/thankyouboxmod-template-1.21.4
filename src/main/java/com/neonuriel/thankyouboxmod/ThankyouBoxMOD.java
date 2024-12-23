@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.neonuriel.thankyouboxmod.items.ModItems;
 import com.neonuriel.thankyouboxmod.items.armor.ModArmorMaterials;
+import com.neonuriel.thankyouboxmod.sound.ModSound;
 import com.neonuriel.thankyouboxmod.worldgen.biome.ModBiome;
 import com.neonuriel.thankyouboxmod.blocks.ModBlocks;
 import com.neonuriel.thankyouboxmod.entities.Entities;
@@ -30,8 +31,9 @@ public class ThankyouBoxMOD implements ModInitializer {
 		ModArmorMaterials.initialize();
 		ModItems.initialize();
 		ModBlocks.initialize();
+		ModSound.initialize();
 		Entities.init();
-		// ModBiome.initialize();
+		ModBiome.initialize();
 	}
 
 	public static Identifier id(String path) {
