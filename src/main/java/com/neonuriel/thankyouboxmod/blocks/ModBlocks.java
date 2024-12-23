@@ -23,7 +23,7 @@ public class ModBlocks {
                         MidoriBlock.Settings.create().strength(1.0f).sounds(ModBlockSoundGroup.MIDORI_BLOCK)
                                         .luminance(MidoriBlock::getLuminance));
 
-        public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", Block::new,
+        public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", ThankYouBoxBlock::new,
                         Block.Settings.create().strength(1.0f));
 
         private static Block register(String path, Function<AbstractBlock.Settings, Block> factory,
