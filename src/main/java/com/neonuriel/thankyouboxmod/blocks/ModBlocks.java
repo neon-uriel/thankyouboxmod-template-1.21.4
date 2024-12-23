@@ -13,13 +13,15 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import com.neonuriel.thankyouboxmod.items.ModItems;
+import com.neonuriel.thankyouboxmod.sound.ModBlockSoundGroup;
 
 public class ModBlocks {
         private ModBlocks() {
         }
 
-        public static final Block CUSTOM_BLOCK = register("midori_block", Block::new,
-                        Block.Settings.create().strength(1.0f));
+        public static final Block MIDORI_BLOCK = register("midori_block", settings -> new MidoriBlock(settings),
+                        MidoriBlock.Settings.create().strength(1.0f).sounds(ModBlockSoundGroup.MIDORI_BLOCK)
+                                        .luminance(MidoriBlock::getLuminance));
 
         public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", Block::new,
                         Block.Settings.create().strength(1.0f));
@@ -36,7 +38,7 @@ public class ModBlocks {
 
         public static void initialize() {
                 ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-                        itemGroup.add(ModBlocks.CUSTOM_BLOCK.asItem());
+                        itemGroup.add(ModBlocks.MIDORI_BLOCK.asItem());
                 });
         }
 }
