@@ -8,10 +8,4 @@ public class ThankYouBoxBlock extends Block {
     public ThankYouBoxBlock(Settings settings) {
         super(settings);
     }
-
-    @Override
-    protected BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.INVISIBLE;
-    }
-
 }

@@ -4,10 +4,12 @@ import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.util.Identifier;
 
-public class ThankYouBoxEntityModel extends Model {
+public class ThankYouBoxEntityModel extends EntityModel<LivingEntityRenderState> {
 	public static final EntityModelLayer LAYER_LOCATION =new EntityModelLayer(ThankyouBoxMOD.id("thank_you_box_entity"), "main");
 	public static final Identifier TEXTURE_LOCATION = ThankyouBoxMOD.id("textures/entity/thank_you_box/thank_you_box.png");
 	private final ModelPart bone;
@@ -17,7 +19,7 @@ public class ThankYouBoxEntityModel extends Model {
 	private final ModelPart bone5;
 	private final ModelPart bone6;
 	public ThankYouBoxEntityModel(ModelPart root) {
-		super(root, RenderLayer::getEntitySolid);
+		super(root, RenderLayer::getEntityCutoutNoCull);
 
 		this.bone = root.getChild("bone");
 		this.bone2 = root.getChild("bone2");

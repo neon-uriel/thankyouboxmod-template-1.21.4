@@ -26,16 +26,22 @@ public class Entities {
             Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob")
         ));
     
-    public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX_BLOCK).build();
+    public static EntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = EntityType.Builder.create(ThankYouBoxEntity::new, SpawnGroup.CREATURE)
+        .dimensions(0.5f, 0.75f)
+        .maxTrackingRange(2000)
+        .build(RegistryKey.of(
+            RegistryKeys.ENTITY_TYPE,
+            Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity")
+        ));
 
     public static void init() {
         Registry.register(
         Registries.ENTITY_TYPE,
         Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob"), BLUE_APPLE_MOB
                 );
-        FabricDefaultAttributeRegistry.register(BLUE_APPLE_MOB, BlueAppleEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(THANK_YOU_BOX_ENTITY, ThankYouBoxEntity.createMobAttributes());
         Registry.register(
-        Registries.BLOCK_ENTITY_TYPE,
+        Registries.ENTITY_TYPE,
         Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"), THANK_YOU_BOX_ENTITY
                 );
     }
