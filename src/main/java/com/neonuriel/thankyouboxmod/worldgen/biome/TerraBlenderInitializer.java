@@ -11,7 +11,7 @@ public class TerraBlenderInitializer implements TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized() {
         // code to run when TerraBlender is initialized
-        Regions.register(new UuumBiome(Identifier.of(ThankyouBoxMOD.MOD_ID, "uuum_biome"), 5));
+        Regions.register(new UuumBiome(Identifier.of(ThankyouBoxMOD.MOD_ID, "uuum_biome"), 2));
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ThankyouBoxMOD.MOD_ID,
                 ModSurfaceRuleData.makeRules());
     }
