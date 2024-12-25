@@ -2,6 +2,7 @@ package com.neonuriel.thankyouboxmod.render.entity;
 
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 import com.neonuriel.thankyouboxmod.entities.Entities;
+import com.neonuriel.thankyouboxmod.render.entity.renderer.FlyerEntityRenderer;
 
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -17,11 +18,13 @@ public class EntityRenderers {
             "main");
     // public static EntityModelLayer MODEL_THANK_YOU_BOX_LAYER = new
     // EntityModelLayer(ThankyouBoxMOD.id("thank_you_box"),"main");
+    public static EntityModelLayer MODEL_FLYER_LAYER = new EntityModelLayer(ThankyouBoxMOD.id("flyer_entity"), "main");
 
     public static void init() {
         EntityRendererRegistry.register(Entities.BLUE_APPLE_MOB, BlueAppleEntityRenderer::new);
         BlockEntityRendererFactories.register(Entities.THANK_YOU_BOX_ENTITY,
                 BlockEntityRendererFactory -> new ThankYouBoxRenderer());
         EntityModelLayerRegistry.registerModelLayer(MODEL_BLUE_APPLE_LAYER, BlueAppleEntityModel::getTexturedModelData);
+        BlockEntityRendererFactories.register(Entities.FLYER_ENTITY, FlyerEntityRenderer::new);
     }
 }

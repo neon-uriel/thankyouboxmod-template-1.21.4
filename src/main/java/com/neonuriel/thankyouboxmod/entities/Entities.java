@@ -26,6 +26,7 @@ public class Entities {
                                         RegistryKeys.ENTITY_TYPE,
                                         Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob")));
 
+        public static BlockEntityType<FlyerEntity> FLYER_ENTITY = FabricBlockEntityTypeBuilder.create(FlyerEntity::new, ModBlocks.FLYER_BLOCK).build();
         public static void init() {
                 Registry.register(
                                 Registries.ENTITY_TYPE,
@@ -36,5 +37,9 @@ public class Entities {
                                 Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"),
                                 FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX)
                                                 .build());
+                Registry.register(
+                    Registries.BLOCK_ENTITY_TYPE,
+                    Identifier.of(ThankyouBoxMOD.MOD_ID, "flyer_entity"), FLYER_ENTITY
+                            );
         }
 }
