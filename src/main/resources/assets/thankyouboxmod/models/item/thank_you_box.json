@@ -1,0 +1,6 @@
+{
+    "parent": "thankyouboxmod:block/thank_you_box",
+    "textures": {
+        "layer0": "thankyouboxmod:entity/thank_you_box/thank_you_box"
+    }
+}

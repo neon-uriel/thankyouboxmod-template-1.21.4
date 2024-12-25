@@ -34,7 +34,7 @@ public class UuumBiome extends Region {
         new ParameterPointListBuilder()
                 .temperature(Temperature.span(Temperature.COOL, Temperature.FROZEN))
                 .humidity(Humidity.span(Humidity.ARID, Humidity.DRY))
-                .continentalness(Continentalness.INLAND)
+                .continentalness(Continentalness.MID_INLAND)
                 .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
                 .depth(Depth.SURFACE, Depth.FLOOR)
                 .weirdness(Weirdness.MID_SLICE_NORMAL_ASCENDING, Weirdness.MID_SLICE_NORMAL_DESCENDING)

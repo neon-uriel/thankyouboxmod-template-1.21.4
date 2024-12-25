@@ -11,8 +11,7 @@ import net.minecraft.client.render.RenderLayer;
 public class ThankyouBoxMODClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.THANK_YOU_BOX_BLOCK);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.THANK_YOU_BOX_BLOCK, ModBlocks.FLYER_BLOCK);
 		EntityModels.init();
 		EntityRenderers.init();
 	}

@@ -23,7 +23,11 @@ public class ModBlocks {
                         MidoriBlock.Settings.create().strength(1.0f).sounds(ModBlockSoundGroup.MIDORI_BLOCK)
                                         .luminance(MidoriBlock::getLuminance));
 
-        public static final Block THANK_YOU_BOX_BLOCK = register("thank_you_box_block", ThankYouBoxBlock::new,
+        public static final Block CHITSU_BLOCK = register("chitsu_block", Block::new,
+                        Block.Settings.create().strength(1.0f).sounds(ModBlockSoundGroup.CHITSU_BLOCK));
+        public static final Block THANK_YOU_BOX = register("thank_you_box", ThankYouBoxBlock::new,
+                        Block.Settings.create().strength(1.0f));
+        public static final Block FLYER_BLOCK = register("flyer_block", FlyerBlock::new,
                         Block.Settings.create().strength(1.0f));
 
         private static Block register(String path, Function<AbstractBlock.Settings, Block> factory,
@@ -39,6 +43,8 @@ public class ModBlocks {
         public static void initialize() {
                 ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
                         itemGroup.add(ModBlocks.MIDORI_BLOCK.asItem());
+                        itemGroup.add(ModBlocks.CHITSU_BLOCK.asItem());
+                        itemGroup.add(ModBlocks.THANK_YOU_BOX.asItem());
                 });
         }
 }

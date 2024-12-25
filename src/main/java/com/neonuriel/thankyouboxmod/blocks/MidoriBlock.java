@@ -31,21 +31,22 @@ public class MidoriBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         boolean activated = state.get(ACTIVATED);
         if (activated) {
             world.setBlockState(pos, state.with(ACTIVATED, false));
             return ActionResult.PASS;
         } else {
             world.setBlockState(pos, state.with(ACTIVATED, true));
-            world.playSound(player, pos, SoundEvent.of(Identifier.of(ThankyouBoxMOD.MOD_ID, "midori_sound")),
+            world.playSound(player, pos,
+                    SoundEvent.of(Identifier.of(ThankyouBoxMOD.MOD_ID, "block.midori_block.sound")),
                     SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
         return ActionResult.SUCCESS;
     }
 
     @Override
-    public boolean emitsRedstonePower(BlockState state) {
+    protected boolean emitsRedstonePower(BlockState state) {
         boolean activated = state.get(MidoriBlock.ACTIVATED);
         if (activated) {
             return true;
@@ -55,7 +56,7 @@ public class MidoriBlock extends Block {
     }
 
     @Override
-    public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+    protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         boolean activated = state.get(MidoriBlock.ACTIVATED);
         if (activated) {
             return 15;
