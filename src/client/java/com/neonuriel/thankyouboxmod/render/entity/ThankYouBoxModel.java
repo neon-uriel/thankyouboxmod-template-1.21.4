@@ -77,7 +77,4 @@ public class ThankYouBoxModel extends EntityModel<BlockDisplayEntityRenderState>
 				ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
-
-	
-    
 }

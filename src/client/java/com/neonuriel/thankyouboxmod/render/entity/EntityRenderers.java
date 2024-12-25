@@ -15,13 +15,18 @@ public class EntityRenderers {
     public static EntityModelLayer MODEL_BLUE_APPLE_LAYER = new EntityModelLayer(ThankyouBoxMOD.id("blue_apple_mob"), "sub");
     public static EntityModelLayer MODEL_THANK_YOU_BOX_LAYER = new EntityModelLayer(ThankyouBoxMOD.id("thank_you_box_entity"),
             "main");
+    public static EntityModelLayer MODEL_INFP_LAYER = new EntityModelLayer(ThankyouBoxMOD.id("infp"),
+            "main");
     public static EntityModelLayer MODEL_FLYER_LAYER = new EntityModelLayer(ThankyouBoxMOD.id("flyer_entity"), "main");
 
     public static void init() {
         EntityRendererRegistry.register(Entities.BLUE_APPLE_MOB, BlueAppleEntityRenderer::new);
+        EntityRendererRegistry.register(Entities.INFP_MOB, InfpEntityRenderer::new);
+
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_BLUE_APPLE_LAYER, BlueAppleEntityModel::getTexturedModelData);
         BlockEntityRendererFactories.register(Entities.THANK_YOU_BOX_ENTITY, ThankYouBoxEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_INFP_LAYER, InfpEntityModel::getTexturedModelData);
         BlockEntityRendererFactories.register(Entities.FLYER_ENTITY, FlyerEntityRenderer::new);
     }
 }

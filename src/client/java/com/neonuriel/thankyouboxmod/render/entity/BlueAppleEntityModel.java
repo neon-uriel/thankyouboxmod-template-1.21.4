@@ -13,11 +13,12 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
+import net.minecraft.util.Identifier;
 
 public class BlueAppleEntityModel extends EntityModel<LivingEntityRenderState> {
 
     private final ModelPart base;
-    
+
     public BlueAppleEntityModel(ModelPart base) {
         super(base, RenderLayer::getEntityCutoutNoCull);
         this.base = base;
@@ -34,7 +35,7 @@ public class BlueAppleEntityModel extends EntityModel<LivingEntityRenderState> {
         rootPart.addChild(EntityModelPartNames.BODY, ModelPartBuilder.create()
                 .uv(0, 20)
                 .cuboid(-4.0F, 12.0F, -3.0F, 8.0F, 12.0F, 6.0F), ModelTransform.NONE);
-        
+
         return TexturedModelData.of(modelData, 64, 32);
     }
 }
