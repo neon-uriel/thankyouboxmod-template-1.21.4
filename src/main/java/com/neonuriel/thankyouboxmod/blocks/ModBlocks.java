@@ -3,7 +3,6 @@ package com.neonuriel.thankyouboxmod.blocks;
 import java.util.function.Function;
 
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
-import com.neonuriel.thankyouboxmod.entities.ThankYouBoxEntity;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
@@ -26,7 +25,7 @@ public class ModBlocks {
 
         public static final Block CHITSU_BLOCK = register("chitsu_block", Block::new,
                         Block.Settings.create().strength(1.0f).sounds(ModBlockSoundGroup.CHITSU_BLOCK));
-        public static final Block THANK_YOU_BOX = register("thank_you_box", Block::new,
+        public static final Block THANK_YOU_BOX = register("thank_you_box", ThankYouBoxBlock::new,
                         Block.Settings.create().strength(1.0f));
         public static final Block FLYER_BLOCK = register("flyer_block", FlyerBlock::new,
                         Block.Settings.create().strength(1.0f));
