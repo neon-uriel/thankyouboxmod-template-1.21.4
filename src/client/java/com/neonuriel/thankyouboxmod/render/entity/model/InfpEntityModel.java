@@ -1,6 +1,9 @@
-package com.neonuriel.thankyouboxmod.render.entity;
+package com.neonuriel.thankyouboxmod.render.entity.model;
 // Made with Blockbench 4.11.2
 
+import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
+import com.neonuriel.thankyouboxmod.render.entity.animation.InfpEntityAnimations;
+import com.neonuriel.thankyouboxmod.render.entity.state.InfpEntityRenderState;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -15,6 +18,7 @@ import net.minecraft.client.model.ModelPartData;
 import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.math.MathHelper;
 
 
@@ -22,6 +26,7 @@ import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
 public class InfpEntityModel extends EntityModel<InfpEntityRenderState>{
+	public static EntityModelLayer LAYER_LOCATION = new EntityModelLayer(ThankyouBoxMOD.id("infp"), "main");
 	private final ModelPart body;
 	private final ModelPart arm0;
 	private final ModelPart arm1;

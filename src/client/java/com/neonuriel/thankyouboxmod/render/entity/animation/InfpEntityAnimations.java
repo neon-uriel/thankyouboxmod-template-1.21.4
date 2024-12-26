@@ -1,4 +1,4 @@
-package com.neonuriel.thankyouboxmod.render.entity;
+package com.neonuriel.thankyouboxmod.render.entity.animation;
 // Save this class in your mod and generate all required imports
 
 import net.minecraft.client.render.entity.animation.Animation;

@@ -1,10 +1,9 @@
-package com.neonuriel.thankyouboxmod.render.entity;
+package com.neonuriel.thankyouboxmod.render.entity.state;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
 
 @Environment(EnvType.CLIENT)
 public class InfpEntityRenderState extends LivingEntityRenderState {

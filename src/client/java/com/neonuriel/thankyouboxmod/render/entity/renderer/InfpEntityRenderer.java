@@ -1,22 +1,20 @@
-package com.neonuriel.thankyouboxmod.render.entity;
+package com.neonuriel.thankyouboxmod.render.entity.renderer;
 
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 import com.neonuriel.thankyouboxmod.entities.InfpEntity;
 
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
+import com.neonuriel.thankyouboxmod.render.entity.EntityRenderers;
+import com.neonuriel.thankyouboxmod.render.entity.state.InfpEntityRenderState;
+import com.neonuriel.thankyouboxmod.render.entity.model.InfpEntityModel;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.util.Identifier;
 
 public class InfpEntityRenderer extends MobEntityRenderer<InfpEntity, InfpEntityRenderState, InfpEntityModel> {
     public InfpEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new InfpEntityModel(context.getPart(EntityRenderers.MODEL_INFP_LAYER)), 0.5f);
+        super(context, new InfpEntityModel(context.getPart(InfpEntityModel.LAYER_LOCATION)), 0.5f);
     }
 
     @Override
