@@ -1,8 +1,6 @@
 package com.neonuriel.thankyouboxmod.render.entity;
 // Made with Blockbench 4.11.2
 
-import com.neonuriel.thankyouboxmod.entities.InfpEntity;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -16,15 +14,14 @@ import net.minecraft.client.model.ModelPartBuilder;
 import net.minecraft.client.model.ModelPartData;
 import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.model.TexturedModelData;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.state.LivingEntityRenderState;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
+
+// EntityModel<LivingEntityRenderState>
+
 @Environment(EnvType.CLIENT)
-public class InfpEntityModel extends EntityModel<LivingEntityRenderState> {
+public class InfpEntityModel extends EntityModel<InfpEntityRenderState>{
 	private final ModelPart body;
 	private final ModelPart arm0;
 	private final ModelPart arm1;
@@ -81,26 +78,5 @@ public class InfpEntityModel extends EntityModel<LivingEntityRenderState> {
 		this.body.yaw = headYaw * 0.017453292F;
 		this.body.pitch = headPitch * 0.017453292F;
 	}
-	// private void setHeadAngles(float headYaw, float headPitch) {
-	// headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
-	// headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
 
-	// this.body.yaw = headYaw * 0.017453292F;
-	// this.body.pitch = headPitch * 0.017453292F;
-	// }
-
-	// @Override
-	// public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int
-	// light, int overlay, float red, float green, float blue, float alpha) {
-	// body.render(matrices, vertexConsumer, light, overlay, red, green, blue,
-	// alpha);
-	// bone2.render(matrices, vertexConsumer, light, overlay, red, green, blue,
-	// alpha);
-	// bone3.render(matrices, vertexConsumer, light, overlay, red, green, blue,
-	// alpha);
-	// arm0.render(matrices, vertexConsumer, light, overlay, red, green, blue,
-	// alpha);
-	// bone5.render(matrices, vertexConsumer, light, overlay, red, green, blue,
-	// alpha);
-	// }
 }
