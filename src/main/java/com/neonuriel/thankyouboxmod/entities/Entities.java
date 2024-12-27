@@ -3,7 +3,6 @@ package com.neonuriel.thankyouboxmod.entities;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.EntityAttachmentType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -25,7 +24,7 @@ public class Entities {
                                         Identifier.of(ThankyouBoxMOD.MOD_ID, "blue_apple_mob")));
         public static EntityType<InfpEntity> INFP_MOB = EntityType.Builder
                         .create(InfpEntity::new, SpawnGroup.CREATURE)
-                        .dimensions(1f, 2.5f)
+                .dimensions(1f, 1.5f)
                         .build(RegistryKey.of(
                                         RegistryKeys.ENTITY_TYPE,
                                         Identifier.of(ThankyouBoxMOD.MOD_ID, "infp_mob")));

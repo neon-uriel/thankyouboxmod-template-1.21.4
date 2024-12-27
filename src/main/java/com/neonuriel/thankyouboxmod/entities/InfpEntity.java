@@ -1,28 +1,19 @@
 package com.neonuriel.thankyouboxmod.entities;
 
+import com.neonuriel.thankyouboxmod.entities.ai.InfpAttackGoal;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.brain.MemoryModuleType;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.util.Unit;
 import org.jetbrains.annotations.Nullable;
 
 import com.google.common.collect.ImmutableList;
 import com.neonuriel.thankyouboxmod.items.ModItems;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.brain.Activity;
-import net.minecraft.entity.ai.goal.AnimalMateGoal;
-import net.minecraft.entity.ai.goal.AttackGoal;
-import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
 import net.minecraft.util.Util;
-import net.minecraft.entity.ai.goal.RevengeGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -52,6 +43,7 @@ public class InfpEntity extends AnimalEntity {
     public final AnimationState walkingAnimationState = new AnimationState();
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT = DataTracker.registerData(InfpEntity.class,
             TrackedDataHandlerRegistry.INTEGER);
+    public int attackAnimationTimeout = 0;
     private int idleAnimationTimeout = 0;
 
     public InfpEntity(EntityType<? extends InfpEntity> entityType, World world) {
@@ -62,14 +54,18 @@ public class InfpEntity extends AnimalEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
 
+        this.goalSelector.add(1, new InfpAttackGoal(this, 1D, true));
+
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
         this.goalSelector.add(2, new TemptGoal(this, 1.25D, Ingredient.ofItems(ModItems.RRUM), false));
 
-        this.goalSelector.add(3, new FollowParentGoal(this, 1.1D));
+        this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
 
-        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
+        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1D));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
         this.goalSelector.add(6, new LookAroundGoal(this));
+
+        this.targetSelector.add(1, new RevengeGoal(this));
     }
 
     public static DefaultAttributeContainer.Builder createInfpAttributes() {
@@ -87,6 +83,26 @@ public class InfpEntity extends AnimalEntity {
         } else {
             --this.idleAnimationTimeout;
         }
+
+        if (this.isAttacking() && attackAnimationTimeout <= 0) {
+            attackAnimationTimeout = 40;
+            attackingAnimationState.start(this.age);
+        } else {
+            --this.attackAnimationTimeout;
+        }
+
+        if (!this.isAttacking()) {
+            attackingAnimationState.stop();
+        }
+    }
+
+    protected void onGrowUp() {
+        if (this.isBaby()) {
+            this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue((double) 1.0F);
+        } else {
+            this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue((double) 2.0F);
+        }
+
     }
 
     @Override
@@ -103,12 +119,24 @@ public class InfpEntity extends AnimalEntity {
     }
 
     @Nullable
-    @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+    public InfpEntity createChild(ServerWorld world, PassiveEntity entity) {
         InfpEntity baby = Entities.INFP_MOB.create(world, SpawnReason.BREEDING);
-        InfpVariant variant = Util.getRandom(InfpVariant.values(), this.random);
-        baby.setVariant(variant);
         return baby;
+    }
+
+//    public boolean isBaby() {
+//        return false;
+//    }
+
+
+    public void breed(ServerWorld world, AnimalEntity other) {
+        PassiveEntity passiveEntity = this.createChild(world, other);
+        if (passiveEntity != null) {
+            passiveEntity.setBaby(true);
+            passiveEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
+            this.breed(world, other, passiveEntity);
+            world.spawnEntityAndPassengers(passiveEntity);
+        }
     }
 
     @Override
@@ -129,6 +157,7 @@ public class InfpEntity extends AnimalEntity {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
+
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
@@ -144,8 +173,9 @@ public class InfpEntity extends AnimalEntity {
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
             @Nullable EntityData entityData) {
-        InfpVariant variant = Util.getRandom(InfpVariant.values(), this.random);
-        setVariant(variant);
+        this.onGrowUp();
+
         return super.initialize(world, difficulty, spawnReason, entityData);
     }
+
 }

@@ -4,13 +4,15 @@ import java.util.function.Function;
 
 import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 
+import com.neonuriel.thankyouboxmod.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import com.neonuriel.thankyouboxmod.items.ModItems;
 import com.neonuriel.thankyouboxmod.sound.ModBlockSoundGroup;
@@ -29,6 +31,8 @@ public class ModBlocks {
                         Block.Settings.create().strength(1.0f));
         public static final Block FLYER_BLOCK = register("flyer_block", FlyerBlock::new,
                         Block.Settings.create().strength(1.0f));
+        public static final Block OIL_FLUID_BLOCK = register("oil_fluid_block", settings -> new FluidBlock(ModFluids.STILL_OIL_FLUID, settings),
+                Block.Settings.create().mapColor(MapColor.DIRT_BROWN).replaceable().noCollision().strength(100.0F).pistonBehavior(PistonBehavior.DESTROY).dropsNothing().liquid().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY));
 
         private static Block register(String path, Function<AbstractBlock.Settings, Block> factory,
                         AbstractBlock.Settings settings) {
@@ -45,6 +49,7 @@ public class ModBlocks {
                         itemGroup.add(ModBlocks.MIDORI_BLOCK.asItem());
                         itemGroup.add(ModBlocks.CHITSU_BLOCK.asItem());
                         itemGroup.add(ModBlocks.THANK_YOU_BOX.asItem());
+                        itemGroup.add(ModBlocks.FLYER_BLOCK.asItem());
                 });
         }
 }
