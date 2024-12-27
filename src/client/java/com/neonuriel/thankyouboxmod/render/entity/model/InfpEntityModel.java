@@ -71,17 +71,18 @@ public class InfpEntityModel extends EntityModel<InfpEntityRenderState>{
 
 	public void setAngles(InfpEntityRenderState state) {
 		super.setAngles(state);
-		this.setBodyAngles(state.bodyYaw, state.pitch);
+//		this.setBodyAngles(state.bodyYaw, state.pitch);
 		this.animateWalking(InfpEntityAnimations.WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 1f, 2f);
 		this.animate(state.idlingAnimationState, InfpEntityAnimations.IDLE, state.age);
+		this.animate(state.attackingAnimationState, InfpEntityAnimations.ATTACK, state.age);
 	}
 
-	private void setBodyAngles(float headYaw, float headPitch) {
-		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
-		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
-
-		this.body.yaw = headYaw * 0.017453292F;
-		this.body.pitch = headPitch * 0.017453292F;
-	}
+//	private void setBodyAngles(float headYaw, float headPitch) {
+//		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+//		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+//
+//		this.body.yaw = headYaw * 0.017453292F;
+//		this.body.pitch = headPitch * 0.017453292F;
+//	}
 
 }

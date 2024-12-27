@@ -1,14 +1,10 @@
 package com.neonuriel.thankyouboxmod.items;
 
+import com.neonuriel.thankyouboxmod.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -73,6 +69,9 @@ public class ModItems {
                         new Item.Settings().maxDamage(EquipmentType.BOOTS
                                         .getMaxDamage(ModArmorMaterials.AKAFUKU_DURABILITY_MULTIPLIER))); // 耐久値
 
+        public static final Item OIL_FLUID_BUCKET = register("oil_fluid_bucket", settings -> new BucketItem(ModFluids.STILL_OIL_FLUID, settings),
+                new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1));
+
         public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(
                         Registries.ITEM_GROUP.getKey(),
                         Identifier.of(ThankyouBoxMOD.MOD_ID, "item_group"));
@@ -109,6 +108,9 @@ public class ModItems {
                         itemGroup.add(ModItems.AKAFUKU_CHESTPLATE);
                         itemGroup.add(ModItems.AKAFUKU_LEGGINGS);
                         itemGroup.add(ModItems.AKAFUKU_BOOTS);
+                        itemGroup.add(ModItems.OIL_FLUID_BUCKET);
+                        itemGroup.add(ModFluids.STILL_OIL_FLUID.getBucketItem());
+                        itemGroup.add(ModFluids.FLOWING_OIL_FLUID.getBucketItem());
                 });
 
         }
