@@ -14,7 +14,7 @@ import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 import com.neonuriel.thankyouboxmod.blocks.ModBlocks;
 
 public class Entities {
-        public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY;
+        //public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY;
         public static EntityType<BlueAppleEntity> BLUE_APPLE_MOB = EntityType.Builder
                         .create(BlueAppleEntity::new, SpawnGroup.CREATURE)
                         .dimensions(0.5f, 0.75f)
@@ -30,6 +30,8 @@ public class Entities {
                                         Identifier.of(ThankyouBoxMOD.MOD_ID, "infp_mob")));
 
         public static BlockEntityType<FlyerEntity> FLYER_ENTITY = FabricBlockEntityTypeBuilder.create(FlyerEntity::new, ModBlocks.FLYER_BLOCK).build();
+        public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX).build();
+
         public static void init() {
                 Registry.register(
                                 Registries.ENTITY_TYPE,
@@ -39,11 +41,10 @@ public class Entities {
                                 Registries.ENTITY_TYPE,
                                 Identifier.of(ThankyouBoxMOD.MOD_ID, "infp_mob"), INFP_MOB);
                 FabricDefaultAttributeRegistry.register(INFP_MOB, InfpEntity.createInfpAttributes());
-                THANK_YOU_BOX_ENTITY = Registry.register(
-                                Registries.BLOCK_ENTITY_TYPE,
-                                Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"),
-                                FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX)
-                                                .build());
+                Registry.register(
+                        Registries.BLOCK_ENTITY_TYPE,
+                        Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"), THANK_YOU_BOX_ENTITY
+                );
                 Registry.register(
                     Registries.BLOCK_ENTITY_TYPE,
                     Identifier.of(ThankyouBoxMOD.MOD_ID, "flyer_entity"), FLYER_ENTITY

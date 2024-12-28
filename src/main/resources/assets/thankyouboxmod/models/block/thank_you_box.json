@@ -1,12 +1,11 @@
 {
-    "parent": "block/block",
     "texture_size": [
         128,
         128
     ],
     "textures": {
         "6": "thankyouboxmod:block/thank_you_box",
-        "particle": "thankyouboxmod:entity/thank_you_box/thank_you_box"
+        "particle": "thankyouboxmod:block/thank_you_box"
     },
     "elements": [
         {

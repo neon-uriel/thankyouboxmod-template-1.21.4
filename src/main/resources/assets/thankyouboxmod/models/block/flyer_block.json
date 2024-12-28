@@ -4,7 +4,8 @@
     128
   ],
   "textures": {
-    "0": "thankyouboxmod:block/flyer"
+    "0": "thankyouboxmod:block/flyer",
+    "particle": "thankyouboxmod:block/flyer"
   },
   "elements": [
     {
