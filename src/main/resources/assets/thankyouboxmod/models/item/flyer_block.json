@@ -1,0 +1,6 @@
+{
+  "parent": "thankyouboxmod:block/flyer_block",
+  "textures": {
+    "layer0": "thankyouboxmod:entity/flyer/flyer"
+  }
+}

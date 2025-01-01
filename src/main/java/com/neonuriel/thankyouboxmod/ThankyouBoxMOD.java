@@ -1,5 +1,6 @@
 package com.neonuriel.thankyouboxmod;
 
+import com.neonuriel.thankyouboxmod.fluid.ModFluids;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 
@@ -34,6 +35,7 @@ public class ThankyouBoxMOD implements ModInitializer {
 		ModSound.initialize();
 		Entities.init();
 		ModBiome.initialize();
+		ModFluids.initialize();
 	}
 
 	public static Identifier id(String path) {
