@@ -4,10 +4,7 @@ import com.neonuriel.thankyouboxmod.ThankyouBoxMOD;
 import com.neonuriel.thankyouboxmod.entities.Entities;
 import com.neonuriel.thankyouboxmod.render.entity.model.BlueAppleEntityModel;
 import com.neonuriel.thankyouboxmod.render.entity.model.InfpEntityModel;
-import com.neonuriel.thankyouboxmod.render.entity.renderer.BlueAppleEntityRenderer;
-import com.neonuriel.thankyouboxmod.render.entity.renderer.InfpEntityRenderer;
-import com.neonuriel.thankyouboxmod.render.entity.renderer.ThankYouBoxEntityRenderer;
-import com.neonuriel.thankyouboxmod.render.entity.renderer.FlyerEntityRenderer;
+import com.neonuriel.thankyouboxmod.render.entity.renderer.*;
 
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -26,6 +23,7 @@ public class EntityRenderers {
     public static void init() {
         EntityRendererRegistry.register(Entities.BLUE_APPLE_MOB, BlueAppleEntityRenderer::new);
         EntityRendererRegistry.register(Entities.INFP_MOB, InfpEntityRenderer::new);
+        EntityRendererRegistry.register(Entities.ICED_TEA_MOB, IcedTeaEntityRenderer::new);
         BlockEntityRendererFactories.register(Entities.THANK_YOU_BOX_ENTITY, ThankYouBoxEntityRenderer::new);
         BlockEntityRendererFactories.register(Entities.FLYER_ENTITY, FlyerEntityRenderer::new);
     }
