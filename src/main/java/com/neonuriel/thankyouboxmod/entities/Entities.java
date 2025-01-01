@@ -28,6 +28,12 @@ public class Entities {
                         .build(RegistryKey.of(
                                         RegistryKeys.ENTITY_TYPE,
                                         Identifier.of(ThankyouBoxMOD.MOD_ID, "infp_mob")));
+        public static EntityType<IcedTeaEntity> ICED_TEA_MOB = EntityType.Builder
+                .create(IcedTeaEntity::new, SpawnGroup.CREATURE)
+                .dimensions(1f, 2.5f)
+                .build(RegistryKey.of(
+                        RegistryKeys.ENTITY_TYPE,
+                        Identifier.of(ThankyouBoxMOD.MOD_ID, "iced_tea_mob")));
 
         public static BlockEntityType<FlyerEntity> FLYER_ENTITY = FabricBlockEntityTypeBuilder.create(FlyerEntity::new, ModBlocks.FLYER_BLOCK).build();
         public static BlockEntityType<ThankYouBoxEntity> THANK_YOU_BOX_ENTITY = FabricBlockEntityTypeBuilder.create(ThankYouBoxEntity::new, ModBlocks.THANK_YOU_BOX).build();
@@ -41,6 +47,10 @@ public class Entities {
                                 Registries.ENTITY_TYPE,
                                 Identifier.of(ThankyouBoxMOD.MOD_ID, "infp_mob"), INFP_MOB);
                 FabricDefaultAttributeRegistry.register(INFP_MOB, InfpEntity.createInfpAttributes());
+                Registry.register(
+                        Registries.ENTITY_TYPE,
+                        Identifier.of(ThankyouBoxMOD.MOD_ID, "iced_tea_mob"), ICED_TEA_MOB);
+                FabricDefaultAttributeRegistry.register(ICED_TEA_MOB, IcedTeaEntity.createIcedTeaAttributes());
                 Registry.register(
                         Registries.BLOCK_ENTITY_TYPE,
                         Identifier.of(ThankyouBoxMOD.MOD_ID, "thank_you_box_entity"), THANK_YOU_BOX_ENTITY
