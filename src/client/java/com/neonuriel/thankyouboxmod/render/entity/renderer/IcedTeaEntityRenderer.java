@@ -27,11 +27,6 @@ public class IcedTeaEntityRenderer extends MobEntityRenderer<IcedTeaEntity, Iced
     public void render(IcedTeaEntity entity, IcedTeaEntityRendererState icedTeaEntityRenderState, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
-        if (entity.isBaby()) {
-            matrixStack.scale(0.5f, 0.5f, 0.5f);
-        } else {
-            matrixStack.scale(1f, 1f, 1f);
-        }
         matrixStack.pop();
         super.render(icedTeaEntityRenderState, matrixStack, vertexConsumerProvider, i);
     }
