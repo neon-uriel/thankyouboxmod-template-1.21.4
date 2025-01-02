@@ -11,7 +11,7 @@ import net.minecraft.client.render.entity.animation.Transformation;
  * @author Author
  */
 public class IcedTeaEntityAnimations {
-    public static final Animation WALK = Animation.Builder.create(0.875F)
+    public static final Animation WALK = Animation.Builder.create(0.875F).looping()
             .addBoneAnimation("bone2", new Transformation(Transformation.Targets.ROTATE,
                     new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.125F, AnimationHelper.createRotationalVector(-37.5F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),

@@ -56,7 +56,7 @@ public class IcedTeaEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createIcedTeaAttributes() {
         return AnimalEntity.createAnimalAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 30)
-                .add(EntityAttributes.MOVEMENT_SPEED, 1)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.5)
                 .add(EntityAttributes.ATTACK_DAMAGE, 1)
                 .add(EntityAttributes.FOLLOW_RANGE, 20);
     }
